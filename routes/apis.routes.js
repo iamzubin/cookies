@@ -4,8 +4,12 @@ module.exports = (app) => {
     app.get('/', cookies.list);
     
     app.post('/add-cookies', cookies.listAdd);
+    
+    app.post('/add-rider', cookies.riderAdd);
+    
+    app.get('/list-rider', cookies.riderList);
 
-    // app.get('/order', cookies.findAll);
+    app.post('/order', cookies.newOrder);
 
     // app.get('/check/:orderId', cookies.findOne);
 

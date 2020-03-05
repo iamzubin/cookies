@@ -25,8 +25,9 @@ app.use(bodyParser.urlencoded({ extended: true }))
 
 app.use(bodyParser.json())
 
+// import routes
+
 const routes = require('./routes/apis.routes.js')(app)
-// app.use(routes)
 
 
 
