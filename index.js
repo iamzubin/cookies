@@ -25,8 +25,11 @@ app.use(bodyParser.urlencoded({ extended: true }))
 
 app.use(bodyParser.json())
 
+const routes = require('./routes/apis.routes.js')(app)
+// app.use(routes)
+
 
 
 app.listen(3000, () => {
-    console.log("Server is listening on port 127.0.0.1:3000");
+    console.log("Server is listening on port localhost:3000");
 });

@@ -1,11 +1,13 @@
 module.exports = (app) => {
-    const notes = require('../controllers/note.controller.js');
+    const cookies = require('../controller/controller.js');
 
-    app.post('/', notes.create);
+    app.get('/', cookies.list);
+    
+    app.post('/add-cookies', cookies.listAdd);
 
-    app.get('/order', notes.findAll);
+    // app.get('/order', cookies.findAll);
 
-    app.get('/check/:orderId', notes.findOne);
+    // app.get('/check/:orderId', cookies.findOne);
 
 
 }

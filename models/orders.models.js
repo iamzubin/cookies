@@ -1,9 +1,9 @@
 const mongoose = require('mongoose');
 
-const RiderSchema = mongoose.Schema({
+const OrderSchema = mongoose.Schema({
     name: String,
     address: String,
     available: Boolean
 });
 
-module.exports = mongoose.model('Rider', RiderSchema);
+module.exports = mongoose.model('Order', OrderSchema);
