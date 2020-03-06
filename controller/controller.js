@@ -1,6 +1,7 @@
 const Orders = require('../models/orders.models.js');
 const Cookies = require('../models/cookies.models.js');
 const Rider = require('../models/rider.models.js');
+const OrderFunctions = require('./orderFunctions.js');
 
 
 
@@ -107,6 +108,7 @@ exports.riderList = (req, res) => {
 
 // Ordering ==================
 
+
 exports.newOrder = (req, res) => {
-    
+    rider = OrderFunctions.getRider()
 };
