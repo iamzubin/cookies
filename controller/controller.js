@@ -11,7 +11,7 @@ const OrderFunctions = require('./orderFunctions.js');
 
 exports.list = (req, res) => {
     Cookies.find()
-        .then(Cookies=>{
+        .then(Cookies => {
             response = []
             Cookies.forEach(element => {
                 append = {
@@ -28,30 +28,30 @@ exports.list = (req, res) => {
 
                 message: err.message || "Some Error occured"
             })
-            
+
         })
 };
 
 
 
 exports.listAdd = (req, res) => {
-    if(!req.body.name){
+    if (!req.body.name) {
         return res.status(400).send({
-            message : "'name' :  can not be empty"
+            message: "'name' :  can not be empty"
         })
     }
-    
+
     const cookie = new Cookies({
         name: req.body.name,
-        stock: req.body.stock || 10 
+        stock: req.body.stock || 10
     })
 
     cookie.save()
-        .then(data=>{
+        .then(data => {
             res.send(data)
-        }).catch(err =>{
+        }).catch(err => {
             res.status(500).send({
-                message : err.message || "some Error occured"
+                message: err.message || "some Error occured"
             })
         })
 };
@@ -60,23 +60,23 @@ exports.listAdd = (req, res) => {
 // Rider CRUD ==================
 
 exports.riderAdd = (req, res) => {
-    if(!req.body.name){
+    if (!req.body.name) {
         return res.status(400).send({
-            message : "'name' :  can not be empty"
+            message: "'name' :  can not be empty"
         })
     }
-    
+
     const rider = new Rider({
         name: req.body.name,
         available: true
     })
 
     rider.save()
-        .then(data=>{
+        .then(data => {
             res.send(data)
-        }).catch(err =>{
+        }).catch(err => {
             res.status(500).send({
-                message : err.message || "some Error occured"
+                message: err.message || "some Error occured"
             })
         })
 };
@@ -84,9 +84,9 @@ exports.riderAdd = (req, res) => {
 
 
 exports.riderList = (req, res) => {
-    
+
     Rider.find()
-        .then(Rider=>{
+        .then(Rider => {
             response = []
             Rider.forEach(element => {
                 append = {
@@ -101,7 +101,7 @@ exports.riderList = (req, res) => {
 
                 message: err.message || "Some Error occured"
             })
-            
+
         })
 };
 
@@ -110,5 +110,22 @@ exports.riderList = (req, res) => {
 
 
 exports.newOrder = (req, res) => {
-    rider = OrderFunctions.getRider()
+    var rider_list =  OrderFunctions.getRider()
+    // var selected_rider = OrderFunctions.selectRider(rider_list, rider_nos)
+    // console.log(rider_list)
+    // OrderFunctions.riderBusy(rider)
+    // cookie = OrderFunctions.checkCookies(req.body.name, req.body.nos)
+    // const order = new Orders({
+    //     name: req.body.uname,
+    //     address: req.body.address,
+    //     status: "Processing"
+    // })
+    // order.save()
+    //     .then(data => {
+    //         res.send(data)
+    //     }).catch(err => {
+    //         res.status(500).send({
+    //             message: err.message || "some Error occured"
+    //         })
+    //     })
 };
